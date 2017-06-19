@@ -1,0 +1,18 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "rallycoding",
+        "plugin:react/recommended"
+    ],
+    "rules": {
+        "react/require-extension": "off"
+        // overrides
+    }
+}
