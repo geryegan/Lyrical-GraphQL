@@ -12,7 +12,8 @@
         "plugin:react/recommended"
     ],
     "rules": {
-        "react/require-extension": "off"
+        "react/require-extension": "off",
+        "import/no-named-as-default": "off"
         // overrides
     }
 }
