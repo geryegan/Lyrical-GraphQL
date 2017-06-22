@@ -20,7 +20,11 @@ class Root extends Component {
     return (
       <ApolloProvider client={client}>
         <Router>
-          <Route exact path="/" component={SongList} />
+          <div>
+            <Route exact path="/" component={SongList} />
+            <Route path="/song/new" component={SongCreate} />
+          </div>
+         
         </Router>
       </ApolloProvider>
     );
