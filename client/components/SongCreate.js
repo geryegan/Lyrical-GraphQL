@@ -9,7 +9,19 @@ class SongCreate extends Component {
     }
     onSubmit(event) {
         event.preventDefault();
+        this.props.mutate({
+            variables: {
+                title: this.state.title
+            }
+        });
+        this.setState({ title: '' });
     }
+    enterKeyDownHandler(e) {
+      if (e.key === 'Enter') {
+        this.submit();
+      }
+    }
+   
     render() {
         return (
           <div>
@@ -19,6 +31,7 @@ class SongCreate extends Component {
               <form onSubmit={this.onSubmit.bind(this)}> 
                   <label>Song Title</label>
                   <input 
+                  onKeyDown={this.enterKeyDownHandler}
                   onChange={event => this.setState({ title: event.target.value })} 
                   value={this.state.title} 
                   />
