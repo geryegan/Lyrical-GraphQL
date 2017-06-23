@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router-dom';
 
 class SongList extends Component {
     renderSongs() {      
@@ -12,7 +13,16 @@ class SongList extends Component {
         console.log(this.props);
         if (this.props.data.loading) { return <div>Loading</div>; }
         return (
-           <ul className="collection">{this.renderSongs()}</ul> 
+            <div>
+                <ul className="collection">{this.renderSongs()}</ul>
+                <Link 
+                className="btn-floating btn-large blue right"
+                to="/songs/new"
+                >
+                <i className="material-icons">add</i>
+                </Link>
+            </div>
+           
         );
     }
 }
