@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Link, withRouter } from 'react-router-dom';
+import query from '../queries/fetchSongs';
 
 class SongCreate extends Component {
     constructor(props) {
@@ -11,9 +12,8 @@ class SongCreate extends Component {
     onSubmit(event) {
         event.preventDefault();
         this.props.mutate({
-            variables: {
-                title: this.state.title
-            }
+            variables: { title: this.state.title },
+            refetchQueries: [{ query }]
         }).then(() => {
             this.props.history.push('/');
         });
@@ -35,7 +35,7 @@ class SongCreate extends Component {
                   Song Create
               </h3>
               <form onSubmit={this.onSubmit.bind(this)}> 
-                  <label>Song Title</label>
+                  <label htmlFor="songTitle">Song Title</label>
                   <input 
                   onChange={event => this.setState({ title: event.target.value })} 
                   value={this.state.title} 
