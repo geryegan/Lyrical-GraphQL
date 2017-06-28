@@ -4,11 +4,15 @@ import getSong from '../queries/getSong';
 
 class SongDetail extends Component {
     render() {
+        const { song } = this.props.data;
+        if (!song) {
+            return <div>Loading</div>;
+        }
         console.log(this.props);
         return (
-            <div>
-                <h3>Song Detail, {this.props.match.params.id} </h3>
-            </div>
+                <div>
+                    <h3>{this.props.data.song.title}</h3>
+                </div>
         );
     }
 }
