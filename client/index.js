@@ -24,9 +24,8 @@ class Root extends Component {
         <Router>
           <div className="container">
             <Route exact path="/" component={SongList} />
+            <Route path="/songs/song/:id" component={SongDetail} />
             <Route path="/songs/new" component={SongCreate} />
-            <Route path="/songs/new" component={SongCreate} />
-            <Route path="/songs/:id" component={SongDetail} />
           </div>
          
         </Router>
