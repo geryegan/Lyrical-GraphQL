@@ -5,6 +5,10 @@ query getSongId($id: ID!){
   song(id: $id){
     title
     id
+    lyrics {
+      id
+      content
+    }
   }
 }
 `;
