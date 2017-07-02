@@ -14,13 +14,10 @@ class LyricCreate extends Component {
         e.preventDefault();
         this.props.mutate({
             variables: { content: this.state.content, songId: this.props.songId }
-        }).then(() => {
-            this.setState({ content: '' });
-        });
+        }).then(() => this.setState({ content: '' }));
     }
 
     render() {
-        console.log('heah we ah right heah', this.props);
         return (
             <div>
                 <h4>
@@ -45,7 +42,8 @@ const mutation = gql`
         addLyricToSong(content: $content, songId: $songId) {
             id
             lyrics {
-            content
+                id
+                content
             }
         }
     }
